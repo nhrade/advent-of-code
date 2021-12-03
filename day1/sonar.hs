@@ -1,7 +1,4 @@
-module Sonar where
-
 import           System.IO
-
 
 -- Count increasing number of elements in a list
 countIncreasing :: [Int] -> Int
@@ -15,3 +12,20 @@ countIncreasing (x : y : xs) =
 sumSlidingWindow :: [Int] -> [Int]
 sumSlidingWindow [] = []
 sumSlidingWindow ls = [sum $ take 3 ls] ++ sumSlidingWindow (drop 1 ls)
+
+
+main = do
+    withFile
+        "input.txt"
+        ReadMode
+        (\handle -> do
+            contents <- hGetContents handle
+
+            -- turn contents into a list of numbers
+            let numbers           = map read $ lines contents :: [Int]
+            let increasing        = countIncreasing numbers
+
+            let increasingSliding = countIncreasing $ sumSlidingWindow numbers
+            -- putStr $ show increasing ++ "\n"
+            putStr $ show increasingSliding
+        )
