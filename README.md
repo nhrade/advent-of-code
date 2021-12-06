@@ -7,7 +7,8 @@ This is the repository for my advent of code submissions. For the Haskell submis
 
 On mac it can be installed as.
 `brew install ghc`
-`brew install python3`
+`brew install pyenv`
+`pyenv install 3.10.0`
 `pip3 install numpy`
 
 
