@@ -1,17 +1,34 @@
 # advent-of-code
 repository for my advent of code submissions
+<!--- advent_readme_stars table --->
+## 2021 Results
+
+| Day | Part 1 | Part 2 |
+| :---: | :---: | :---: |
+| [Day 1](https://adventofcode.com/2021/day/1) | ⭐ | ⭐ |
+| [Day 2](https://adventofcode.com/2021/day/2) | ⭐ | ⭐ |
+| [Day 3](https://adventofcode.com/2021/day/3) | ⭐ | ⭐ |
+| [Day 4](https://adventofcode.com/2021/day/4) | ⭐ |   |
+<!--- advent_readme_stars table --->
 
 
 This is the repository for my advent of code submissions. For the Haskell submissions GHC must be installed using an installer or brew install ghc with version 8.10.7. Python uses numpy and Python 3.10.
 
 
 On mac it can be installed as.
+
 `brew install ghc`
+
 `brew install pyenv`
-`pyenv install 3.10.0`
+
+
+`pyenv install 3.10.0 `
+
+`pyenv global 3.10.0`
+
 `pip3 install numpy`
 
 
 Haskell files are run with `runhaskell file.hs`
 
-Python files are run as `python3 file.py`
+Python files are run as `python file.py`
