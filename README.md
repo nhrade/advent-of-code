@@ -9,3 +9,8 @@ On mac it can be installed as.
 `brew install ghc`
 `brew install python3`
 `pip3 install numpy`
+
+
+Haskell files are run with `runhaskell file.hs`
+
+Python files are run as `python3 file.py`
