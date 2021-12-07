@@ -1,50 +1,38 @@
-import requests
-from dataclasses import dataclass
+def count_overlaps(lines):
+    counts = {}
+    for line in lines:
+        x1, y1, x2, y2 = line
 
+        minx = min(x1, x2)
+        maxx = max(x1, x2)
+        miny = min(y1, y2)
+        maxy = max(y1, y2)
 
-@dataclass
-class Line:
-    x1: int
-    y1: int
-    x2: int
-    y2: int
-
-    def is_vertical(self):
-        return self.x1 == self.x2
-
-    def is_horizontal(self):
-        return self.y1 == self.y2
-
-    def is_parallel(self, other):
-        """Check if self and other lines are parallel"""
-        return (
-            self.is_vertical()
-            and other.is_vertical()
-            or self.is_horizontal()
-            and other.is_horizontal()
-        )
-
-    def count_overlaps(self, other):
-        """Check how many times self and other line intersect"""
-        if self.is_vertical():
-            if self.y1 <= other.y1 <= self.y2:
-                return 1
-        elif self.is_horizontal():
-            if self.x1 <= other.x1 <= self.x2:
-                return 1
-        return 0
-
-
-def count_overlapping_lines(lines):
+        if x1 == x2:
+            # vertical line
+            for y in range(miny, maxy + 1):
+                if (x1, y) in counts:
+                    counts[(x1, y)] += 1
+                else:
+                    counts[(x1, y)] = 1
+        elif y1 == y2:
+            # horizontal line
+            for x in range(minx, maxx + 1):
+                if (x, y1) in counts:
+                    counts[(x, y1)] += 1
+                else:
+                    counts[(x, y1)] = 1
+        """else:
+            # diagonal
+            for i in range(1, maxx - minx):
+                if (minx + i, miny + i) in counts:
+                    counts[(minx + i, miny + i)] += 1
+                else:
+                    counts[(minx + i, miny + i)] = 1"""
     overlaps = 0
-    seen = set()
-    for i, line1 in enumerate(lines):
-        for j, line2 in enumerate(lines):
-            if i != j and (
-                (line1.is_vertical() and line2.is_horizontal())
-                or (line1.is_horizontal() and line2.is_vertical())
-            ):
-                overlaps += line1.count_overlaps(line2)
+    for _, count in counts.items():
+        if count > 1:
+            overlaps += 1
     return overlaps
 
 
@@ -60,7 +48,7 @@ def parse_input(contents):
                 nums.append(int(pair[1].strip()))
             except ValueError:
                 print("Error:", pair)
-        lines.append(Line(*nums))
+        lines.append((nums[0], nums[1], nums[2], nums[3]))
     return lines
 
 
@@ -69,5 +57,5 @@ if __name__ == "__main__":
         data = f.read().strip()
         contents = data.split("\n")
         lines = parse_input(contents)
-        num_overlaps = count_overlapping_lines(lines)
-        print(f"number of overlapping {num_overlaps}")
+        overlaps = count_overlaps(lines)
+        print("Overlaps:", overlaps)
