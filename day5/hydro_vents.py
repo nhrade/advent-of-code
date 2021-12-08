@@ -1,39 +1,52 @@
+def get_min_max(x1, y1, x2, y2):
+    return min(x1, x2), max(x1, x2), min(y1, y2), max(y1, y2)
+
+
+def add_point(counts, point):
+    if point in counts:
+        counts[point] += 1
+    else:
+        counts[point] = 1
+
+
+def count_straight(counts, x1, y1, x2, y2):
+    xmin, xmax, ymin, ymax = get_min_max(x1, y1, x2, y2)
+
+    if x1 == x2:
+        # vertical line
+        for y in range(ymin, ymax + 1):
+            add_point(counts, (x1, y))
+    elif y1 == y2:
+        # horizontal line
+        for x in range(xmin, xmax + 1):
+            add_point(counts, (x, y1))
+
+
+def count_diagonals(counts, x1, y1, x2, y2):
+    # diagonals with a bit of calculus
+    # (xmin, ymax) -> (xmax, ymin)
+    # (xmin, ymin) ->  (xmin, ymax)
+    xmin, xmax, ymin, ymax = get_min_max(x1, y1, x2, y2)
+
+    dy = y2 - y1
+    dx = x2 - x1
+    if abs(dx) > 0:
+        slope = dy / dx
+        if slope == -1:
+            for i in range(ymax - ymin):
+                add_point(counts, (xmin + i, ymax - i))
+        elif slope == 1:
+            for i in range(ymax - ymin):
+                add_point(counts, (xmin + i, ymin + i))
+
+
 def count_overlaps(lines):
     counts = {}
     for line in lines:
         x1, y1, x2, y2 = line
-
-        minx = min(x1, x2)
-        maxx = max(x1, x2)
-        miny = min(y1, y2)
-        maxy = max(y1, y2)
-
-        if x1 == x2:
-            # vertical line
-            for y in range(miny, maxy + 1):
-                if (x1, y) in counts:
-                    counts[(x1, y)] += 1
-                else:
-                    counts[(x1, y)] = 1
-        elif y1 == y2:
-            # horizontal line
-            for x in range(minx, maxx + 1):
-                if (x, y1) in counts:
-                    counts[(x, y1)] += 1
-                else:
-                    counts[(x, y1)] = 1
-        """else:
-            # diagonal
-            for i in range(1, maxx - minx):
-                if (minx + i, miny + i) in counts:
-                    counts[(minx + i, miny + i)] += 1
-                else:
-                    counts[(minx + i, miny + i)] = 1"""
-    overlaps = 0
-    for _, count in counts.items():
-        if count > 1:
-            overlaps += 1
-    return overlaps
+        count_straight(counts, x1, y1, x2, y2)
+        count_diagonals(counts, x1, y1, x2, y2)
+    return sum(count > 1 for _, count in counts.items())
 
 
 def parse_input(contents):
