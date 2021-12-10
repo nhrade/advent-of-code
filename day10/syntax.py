@@ -42,7 +42,7 @@ def check_errors(line: str) -> (str, int):
     return None, -1
 
 
-def complete_line(line: str):
+def complete_line(line: str) -> str:
     stack = []
     for i, ch in enumerate(line):
         if ch in '([{<':
@@ -52,7 +52,7 @@ def complete_line(line: str):
                 stack.pop()
     return ''.join(closing_tag[ch] for ch in stack[::-1])
 
-def error_score(contents: [str]):
+def error_score(contents: [str]) -> int:
     score = 0
     for line in contents:
         ch, pos = check_errors(line)
