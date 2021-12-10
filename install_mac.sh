@@ -1,5 +1,6 @@
 #!/bin/bash
 
+brew update
 brew install ghc
 brew install pyenv
 pyenv install 3.10.0
