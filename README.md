@@ -21,17 +21,13 @@ This is the repository for my advent of code submissions. For the Haskell submis
 
 On mac it can be installed as.
 
-`brew install ghc`
-
-`brew install pyenv`
-
-
-`pyenv install 3.10.0 `
-
-`pyenv local 3.10.0`
-
-`python -m venv .env`
-`pip install -r requirements.txt`
+```bash
+brew install ghc
+brew install pyenv`
+pyenv install 3.10.0 `
+pyenv local 3.10.0`
+python -m venv .env`
+pip install -r requirements.txt```
 
 
 Haskell files are run with `runhaskell file.hs`
