@@ -8,13 +8,15 @@ repository for my advent of code submissions in haskell and python.
 | [Day 1](https://adventofcode.com/2021/day/1) | ⭐ | ⭐ |
 | [Day 2](https://adventofcode.com/2021/day/2) | ⭐ | ⭐ |
 | [Day 3](https://adventofcode.com/2021/day/3) | ⭐ | ⭐ |
-| [Day 4](https://adventofcode.com/2021/day/4) | ⭐ |   |
-| [Day 5](https://adventofcode.com/2021/day/5) | ⭐ |   |
-| [Day 6](https://adventofcode.com/2021/day/6) | ⭐ |   |
+| [Day 4](https://adventofcode.com/2021/day/4) | ⭐ | ⭐ |
+| [Day 5](https://adventofcode.com/2021/day/5) | ⭐ | ⭐ |
+| [Day 6](https://adventofcode.com/2021/day/6) | ⭐ | ⭐ |
+| [Day 7](https://adventofcode.com/2021/day/7) | ⭐ |   |
+| [Day 9](https://adventofcode.com/2021/day/9) | ⭐ | ⭐ |
 <!--- advent_readme_stars table --->
 
 
-This is the repository for my advent of code submissions. For the Haskell submissions GHC must be installed using an installer or brew install ghc with version 8.10.7. Python uses numpy and Python 3.10.
+This is the repository for my advent of code submissions. For the Haskell submissions GHC must be installed using an installer or brew install ghc with version 8.10.7. Python uses numpy and Python 3.10. I chose haskell when I could and used Python when it was easier. Not all the submissions are done, I've skipped some that I am waiting until later to do.
 
 
 On mac it can be installed as.
