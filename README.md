@@ -25,11 +25,13 @@ On mac it can be installed as.
 brew install ghc
 brew install pyenv
 pyenv install 3.10.0
-pyenv local 3.10.0`
+pyenv local 3.10.0
 python -m venv .env
 pip install -r requirements.txt
 ```
 
+or using the install_mac.sh script
+`./install_mac.sh`
 
 Haskell files are run with `runhaskell file.hs`
 
