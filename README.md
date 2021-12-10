@@ -1,5 +1,5 @@
 # advent-of-code
-repository for my advent of code submissions in haskell and python.
+repository for my advent of code submissions in python and haskell.
 <!--- advent_readme_stars table --->
 ## 2021 Results
 
