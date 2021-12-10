@@ -28,9 +28,10 @@ On mac it can be installed as.
 
 `pyenv install 3.10.0 `
 
-`pyenv global 3.10.0`
+`pyenv local 3.10.0`
 
-`pip3 install numpy`
+`python -m venv .env`
+`pip install -r requirements.txt`
 
 
 Haskell files are run with `runhaskell file.hs`
