@@ -1,5 +1,5 @@
 # advent-of-code
-repository for my advent of code submissions in haskell and python.
+repository for my advent of code submissions in python and haskell.
 <!--- advent_readme_stars table --->
 ## 2021 Results
 
@@ -21,17 +21,17 @@ This is the repository for my advent of code submissions. For the Haskell submis
 
 On mac it can be installed as.
 
-`brew install ghc`
+```bash
+brew install ghc
+brew install pyenv
+pyenv install 3.10.0
+pyenv local 3.10.0
+python -m venv .env
+pip install -r requirements.txt
+```
 
-`brew install pyenv`
-
-
-`pyenv install 3.10.0 `
-
-`pyenv global 3.10.0`
-
-`pip3 install numpy`
-
+or using the install_mac.sh script
+`./install_mac.sh`
 
 Haskell files are run with `runhaskell file.hs`
 
